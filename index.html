@@ -1,29 +1,40 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html"; charset-UTF-8 />
-    <meta name="viewport" content="user-scalable=no width=devide-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+<canvas id="gameCanvas" width="800" height="600"></canvas>
     
-    <title>ZiLi</title>
-    
-    <canvas id="gameCanvas" widht="800" height="600"></canvas>
-    
-    <script>
+<script>
     var canvas;
     var canvasContext;
+    var ballX= 50;
+    var ballSpeedX = 5;
     
     window.onload = function() {
-      console.log("Hello World!");
       canvas = document.getElementById('gameCanvas');
       canvasContext = canvas.getContext('2d');
+      
+      var framesPerSecond = 30;
+      setInterval(function(){
+		moveEverything();
+		drawEverything();
+    }, 1000/framesPerSecond );
+	}
+    
+    function callBoth() {
+      moveEverything();
+      drawEverything();
+    }
+    
+    function moveEverything() {
+      ballX = ballX + ballSpeedX;
+      ballSpeedX = ballSpeedX + 1;
+    }
+    
+    function drawEverything() {
       canvasContext.fillStyle =  'black';
       canvasContext.fillRect(0,0,canvas.width,canvas.height);
-      }
-    </script>
-    
-  </head>
-  <body>
-  <p align="center">ZiLi Game</p>
-  </body>
+      canvasContext.fillStyle = 'white';
+      canvasContext.fillRect(225,210,10,100);
+      canvasContext.fillStyle = 'red';
+      canvasContext.fillRect(ballX,100,10,10);
+    }
+</script>
 </html>

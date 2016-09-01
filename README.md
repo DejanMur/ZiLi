@@ -1,4 +1,4 @@
 # ZiLi
-web based game
-will run under any browser
-keep in mind this is made out of hobby
+web based game<br>
+will run under any browser<br>
+keep in mind this is made out of hobby, and it is my first attempt :)<br>
